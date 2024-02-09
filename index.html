@@ -1,11 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      p {
+        width: 50px;
+        background-color: blue;
+      }
+
+      img {
+        display: inline;
+      }
+    </style>
     <title>Embedded Media and Mobile Queries</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div>
+      <p>Hi Mom</p>
+      <p>Hi Dad</p>
+      <img
+        width="150"
+        src="./Horse-rider.jpg"
+        alt="A mom with her two kids in bed."
+      />
+      <img
+        width="100"
+        src="https://source.unsplash.com/random/1920x1080/?topic"
+        alt=""
+      />
+
+      <video width="200" height="150" controls>
+        <source src="./data_video.mp4" />
+      </video>
+
+      <iframe
+        class="iframe-class"
+        width="500"
+        height="300"
+        src="https://www.youtube.com/embed/krsBRQbOPQ4?si=752o-iaQBBU7ox34"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+
+      <iframe
+        src="https://en.wikipedia.org/wiki/El_Cid"
+        width="600"
+        height="800"
+      ></iframe>
+
+      <h2>Canvas Animation</h2>
+      <canvas
+        id="myCanvas"
+        width="200"
+        height="100"
+        style="border: 1px solid black"
+      ></canvas>
+    </div>
+
+    <h2>Audio Sample</h2>
+    <audio controls>
+      <source src="https://cdn.freesound.org/previews/722/722735_8432823-lq.ogg" type="audio/mpeg" />
+    </audio>
+
+    <h2>Embedded Map</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.073394394073!2d-73.9856606845946!3d40.74881797932747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f3f3b3b3f%3A0x1e6e3e3f3f3f3f3f!2sTexas%20Motor%20Speedway!5e0!3m2!1sen!2sus!4v1629780730733!5m2!1sen!2sus"
+      width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      title="Embedded Google Map"
+      ></iframe>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      const posX = 0;
+      const posY = 0;
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "blue";
+        ctx.fillRect(posX, posY, 150, 150);
+        posX += 1;
+
+        if (posX > 200) {
+          posX = 0;
+        }
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    </script>
+  </body>
 </html>
